@@ -1,29 +1,27 @@
-/*Ce programme  */
+/*La division  */
+
 #include <stdio.h>
 
 int main() 
 {
-    //déclaration de la variable X
-    float X;
+    float x1 = 10 / 3; // division entière suivie d'une conversion implicite
+    printf("x1 = %f (en float) ou %d (en entier)\n", x1, (int) x1);
+    
+    float x2 = 10.0 / 3; // division de deux flottants
+    printf("x2 = %f\n", x2);
 
-    float x = 10 / 3;
-    printf("x = %f\n", x);
+    float x3 = 10.0 / 3.0; // division de deux flottants
+    printf("x3 = %f\n", x3);
 
-    float x = 10.0 / 3;
-    printf("x = %f\n", x);
+    float x4 = (float) 10 / 3; // conversion explicite suivie d'une division entière
+    printf("x4 = %f\n", x4);
 
-    float x = 10.0 / 3.0;
-    printf("x = %f\n", x);
+    float x5 = ((float) 10) / 3; // conversion explicite suivie d'une division entière
+    printf("x5 = %f\n", x5);
 
-    float x = (float) 10 / 3;
-    printf("x = %f\n", x);
-
-    float x = ((float) 10) / 3;
-    printf("x = %f\n", x);
-
-    float x2 = ((float) 10) / 3;
-    printf("x6 (1 chiffre) = %.1f\n", x2);
-    printf("x6 (5 chiffres) = %.5f\n", x2);
-
+    float x6 = ((float) 10) / 3; // conversion explicite suivie d'une division entière avec précision
+    printf("x6 = %.1f (en float) ou %.5f (en float avec précision)\n", x6, x6);
+    
     return 0;
 }
+
