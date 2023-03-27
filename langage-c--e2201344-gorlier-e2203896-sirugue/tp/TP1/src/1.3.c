@@ -1,8 +1,8 @@
-/*Ce programme affiche à l’écran le texte : « Hello world » */
+/*S’ouvrir au monde ! */
 #include <stdio.h>
 
+
 int main() {
-    printf ("Hello world");
+    printf("Hello World");
     return 0;
 }
-
