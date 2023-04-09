@@ -1,4 +1,5 @@
-/*S’ouvrir au monde ! */
+//IV ) Priorité des opérateurs
+//Programme qui affiche les valeurs de X pour les différentes expressions suivantes :
 #include <stdio.h>
 
 int main() {

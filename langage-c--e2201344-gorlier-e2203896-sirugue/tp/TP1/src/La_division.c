@@ -1,5 +1,5 @@
-/*La division  */
-
+//V ) La division
+// Programme qui illustre les différences entre la division entière et la division de flottants
 #include <stdio.h>
 
 int main() 
