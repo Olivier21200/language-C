@@ -1,3 +1,5 @@
+// II) Algorithme de tri
+// Programme qui réalise un tri par insertion sur un tableau de 30 entiers aléatoires compris entre 0 et 50	
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>

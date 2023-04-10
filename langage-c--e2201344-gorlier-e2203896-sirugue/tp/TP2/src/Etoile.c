@@ -1,100 +1,136 @@
-#include<stdio.h>
- 
-int main()
+// II ) Etoile
+// Programme qui affiche des étoiles en fonction du choix de l'utilisateur (1 à 6) et de la valeur de N (entre 1 et 20)
+
+#include <stdio.h>
+
+int main() 
 {
-    int i, j, ligne;
-  //Affichage du carée
-  printf("Entrez le nombre de lignes pour le carée: ");
-  scanf("%d",&ligne);
-  printf("\n");
-     
-    for(i=0; i < ligne; i++)
+    int N, choix;
+
+    do // Boucle pour demander à l'utilisateur de saisir une valeur entre 1 et 20
     {
-        for(j=0; j < ligne; j++)
-    {
-           printf("*");
-        }
-        printf("\n");
+        printf("Entrez un entier entre 1 et 20 : ");
+        scanf("%d", &N);
     }
+    while (N < 1 || N > 20); // Tant que N n'est pas compris entre 1 et 20, on redemande à l'utilisateur de saisir une valeur
 
-    //Affichage du triangle isocèle non perpendiculaire à gauche
-    printf("\n");
-    int a = 0;
+    do { // Boucle pour afficher le menu et demander à l'utilisateur de saisir un choix0
+        printf("\n ----- Main Menu ----- :\n");
+        printf("1) Afficher un carrée\n", N);
+        printf("2) Afficher une pyramide montante\n");
+        printf("3) Afficher une pyramide descendante\n");
+        printf("4) Afficher un sapin de No�l\n");
+        printf("5) Afficher un losange\n");
+        printf("6) Quitter\n");
 
-    printf("Entrez un entier n pour le triangle issocèle à gauche : ");
-    scanf("%d", &a);
+        printf("\nEntrez votre choix : ");
+        scanf("%d", &choix);
 
-    // Affichage de la partie supérieure du triangle inversé
-    for (i = 1; i <= a; i++) {
-        for (j = 1; j <= i; j++) {
-            printf("*");
-        }
-        printf("\n");
-    }
-
-    // Affichage de la partie inférieure du triangle inversé
-    for (i = a-1; i >= 1; i--) {
-        for (j = 1; j <= i; j++) {
-            printf("*");
-        }
-        printf("\n");
-    }
-
-    //Affichage du triangle isocèle non perpendiculaire à droite
-    printf("\n");
-     int b=0;
-
-    printf("Entrez un entier b : ");
-    scanf("%d", &b);
-
-    // Affichage du triangle sur le côté droit
-    for (i = 1; i <= b; i++) {
-        for (j = 1; j <= b-i; j++) {
-            printf(" ");
-        }
-        for (j = 1; j <= i; j++) {
-            printf("*");
-        }
-        printf("\n");
-    }
-    
-    int c, z, s, ligne2;
-  
-    printf("Entrez le nombre de lignes: ");
-    scanf("%d",&ligne2);
-  
-    for(c=1; c<=ligne2; ++c, z=0)
-    {
-        for(s=1; s<=ligne2-c; ++s)
+        switch (choix) // Affichage des étoiles en fonction du choix de l'utilisateur
         {
-            printf("  ");
+            case 1: // Affichage d'un carrée de cotés N  
+                for (int i = 0; i < N; i++) 
+                {
+                    for (int j = 0; j < N; j++) 
+                    {
+                        printf("*");
+                    }
+                    printf("\n");
+                }
+                break;
+            case 2: // Affichage d'une pyramide montante de hauteur N
+                for (int i = 1; i <= N; i++) // Affichage de la partie supérieure du triangle inversé
+                {
+                    for (int j = 0; j < i; j++) 
+                    {
+                        printf("*");
+                    }
+                    printf("\n");
+                }
+                for (int i = N-1; i >= 1; i--) // Affichage de la partie inférieure du triangle inversé
+                {
+                    for (int j = 0; j < i; j++) 
+                    {
+                        printf("*");
+                    }
+                    printf("\n");
+                }
+                break;
+            case 3: // Affichage d'une pyramide descendante de hauteur N
+                for (int i = 1; i <= N; i++) // Affichage de la partie supérieure du triangle
+                {
+                    for (int j = N; j > i; j--) 
+                    {
+                        printf(" ");
+                    }
+                    for (int k = 1; k <= i; k++) 
+                    {
+                        printf("*");
+                    }
+                    printf("\n");
+                }
+                for (int i = 1; i < N; i++) // Affichage de la partie inférieure du triangle
+                {
+                    for (int j = 1; j <= i; j++) 
+                    {
+                        printf(" ");
+                    }
+                    for (int k = N; k > i; k--) 
+                    {
+                        printf("*");
+                    }
+                    printf("\n");
+                }
+                break;
+
+            case 4: // Affichage d'un sapin de Noël de hauteur N
+                for (int i = 1; i <= N; i++) 
+                {
+                    for (int j = 1; j <= N-i; j++) // Affichage des espaces avant les étoiles
+                    {
+                        printf(" ");
+                    }
+                    for (int j = 1; j <= 2*i-1; j++) // Affichage des étoiles 
+                    {
+                        printf("*");
+                    }
+                    printf("\n");
+                }
+                break;
+            case 5: // Affichage d'un losange de hauteur N
+                for (int i = 1; i <= N; i++) // Affichage de la partie supérieure du losange
+                {
+                    for (int j = 1; j <= N-i; j++) 
+                    {
+                        printf(" ");
+                    }
+                    for (int j = 1; j <= 2*i-1; j++) 
+                    {
+                        printf("*");
+                    }
+                    printf("\n");
+                }
+                for (int i = N-1; i >= 1; i--) // Affichage de la partie inférieure du losange
+                {
+                    for (int j = 1; j <= N-i; j++) 
+                    {
+                        printf(" ");
+                    }
+                    for (int j = 1; j <= 2*i-1; j++) 
+                    {
+                        printf("*");
+                    }
+                    printf("\n");
+                }
+                break;
+            case 6: // Quitter le programme
+                printf("Fin du programme !");
+                break;
+            default: // Si l'utilisateur saisit un choix invalide
+                printf("Choix invalide.\n");
         }
-        while(j != 2*c-1)
-        {
-            printf("* ");
-            ++j;
-        }
-        printf("\n");
-    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    } 
+    while (choix !=6); // Tant que l'utilisateur ne saisit pas 6, on lui redemande de saisir un choix
     return 0;
 }
