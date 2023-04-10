@@ -1,7 +1,8 @@
+// fonction.c
 #include <stdio.h>
 #include "fonction.h"
 
 void affiche_hello() 
 {
-    printf("Hello world!\n");
+    printf("Hello world\n");
 }
