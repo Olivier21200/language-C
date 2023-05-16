@@ -1,4 +1,4 @@
-//IX) Somme des n premiers entiers
+// IX) Somme des n premiers entiers
 // Programme qui calcule la somme des n premiers entiers avec différentes boucles
 #include <stdio.h>
 
@@ -7,7 +7,13 @@ int main()
     int n, i, somme;
 
     printf("Entrez un entier n : ");
-    scanf("%d", &n);
+
+    // Validation de l'entrée de l'utilisateur
+    if (scanf("%d", &n) != 1 || n <= 0) 
+    {
+        printf("Erreur : valeur non valide\n");
+        return 1;
+    }
 
     // boucle for à indice incrémenté
     somme = 0;
@@ -40,7 +46,6 @@ int main()
     i = n;
     while (i >= 1) 
     {
-    
         somme += i;
         i--;
     }

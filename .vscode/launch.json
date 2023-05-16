@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/Admin/Documents/GitHub/language-C/langage-c--e2201344-gorlier-e2203896-sirugue/tp/TP5/src",
-      "program": "c:/Users/Admin/Documents/GitHub/language-C/langage-c--e2201344-gorlier-e2203896-sirugue/tp/TP5/src/build/Debug/outDebug",
+      "cwd": "c:/Users/Admin/Documents/GitHub/language-C/langage-c--e2201344-gorlier-e2203896-sirugue/tp/TP1/src",
+      "program": "c:/Users/Admin/Documents/GitHub/language-C/langage-c--e2201344-gorlier-e2203896-sirugue/tp/TP1/src/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

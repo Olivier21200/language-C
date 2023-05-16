@@ -30,6 +30,10 @@ int main() {
     printf("Résultat de a ^ b en binaire : %d\n", res_ou_exclusif5);
     //effectue une opération de OU exclusif bit à bit entre les valeurs de "a" et "b".
 
+    //bool res = a ^^ b;
+    printf("Résultat de a ^^ b en booléen : %d\n", res);
+    //L'opérateur logique "a^^b" en C donne 1 si les deux valeurs sont différentes de 0.
+
     bool res_non_binaire5 = ~a;  // faux (égal à 0)
     printf("Résultat de ~a en binaire : %d\n", res_non_binaire5);
     //effectue une opération de complément à un bit sur l'opérande.

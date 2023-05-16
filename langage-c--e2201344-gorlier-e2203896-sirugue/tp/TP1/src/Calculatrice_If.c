@@ -1,49 +1,65 @@
 // VIII) Calculatrice
-// Programme qui permet de faire des calculs simples (+, -, *, /) avec deux opérandes et des valeurs entières ou flottantes 
+// Programme qui permet de faire des calculs simples (+, -, *, /) avec deux opérandes et des valeurs entières ou flottantes
 #include <stdio.h>
 
 int main() {
-    char operation;
-    float operande1, operande2, resultat;
-    while(1) 
+    char operation; // Variable pour stocker l'opération
+    float operande1, operande2, resultat; // Variables pour stocker les opérandes et le résultat
+
+    while (1) 
     {
         printf("Entrez une opération (+, -, *, /) ou 's' pour sortir : ");
-        scanf(" %c", &operation);
-        if (operation == 's')  // On quitte la boucle si l'utilisateur entre 's'
-        {
+        if (scanf(" %c", &operation) != 1) 
+        { // Lecture sécurisée de l'opération
+            printf("Erreur de saisie.\n");
+            fflush(stdin); // Efface les caractères restants dans le flux d'entrée
+            continue;
+        }
+        if (operation == 's') 
+        { // Vérifie si l'utilisateur veut sortir
             break;
         }
+
         printf("Entrez deux opérandes : ");
-        scanf("%f %f", &operande1, &operande2);
-        if (operation == '+')  // On effectue l'opération +
-        {
+        if (scanf("%f %f", &operande1, &operande2) != 2) 
+        { // Lecture sécurisée des opérandes
+            printf("Erreur de saisie.\n");
+            fflush(stdin);
+            continue;
+        }
+
+        if (operation == '+') 
+        { // Addition
             resultat = operande1 + operande2;
         } 
-        else if (operation == '-') // On effectue l'opération -
-        {
+        else if (operation == '-') 
+        { // Soustraction
             resultat = operande1 - operande2;
         } 
-        else if (operation == '*') // On effectue l'opération *
-        {
+        else if (operation == '*') 
+        { // Multiplication
             resultat = operande1 * operande2;
         } 
-        else if (operation == '/') // On effectue l'opération /
-        {
-            if (operande2 != 0) // On vérifie que l'opérande 2 n'est pas nul
+        else if (operation == '/') 
+        { // Division
+            if (operande2 != 0) 
             {
                 resultat = operande1 / operande2;
             } 
-            else // On affiche un message d'erreur si l'opérande 2 est nul
+            else 
             {
                 printf("Erreur : division par zéro\n");
                 continue;
             }
-        } else // On affiche un message d'erreur si l'opération n'est pas définie
-        {
+        } 
+        else 
+        { // Opération non définie
             printf("Erreur : opération non définie\n");
             continue;
         }
-        printf("Résultat : %f\n", resultat); // On affiche le résultat
+
+        printf("Résultat : %f\n", resultat); // Affichage du résultat
     }
+
     return 0;
 }

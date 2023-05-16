@@ -1,4 +1,4 @@
-//VIII) Calculatrice #2 
+// VIII) Calculatrice #2 
 // Programme qui permet de faire des calculs simples (+, -, *, /) avec deux opérandes et des valeurs entières ou flottantes avec l'opérateur switch
 #include <stdio.h>
 
@@ -10,12 +10,28 @@ int main()
     {
         printf("Entrez une opération (+, -, *, /) ou 's' pour sortir : ");
         scanf(" %c", &operation);
+
+        // Validation de l'opération entrée par l'utilisateur
+        if (operation != '+' && operation != '-' && operation != '*' && operation != '/' && operation != 's') 
+        {
+            printf("Erreur : opération non valide\n");
+            continue;
+        }
+
         if (operation == 's') 
         {
             break;
         }
+
         printf("Entrez deux opérandes : ");
-        scanf("%f %f", &operande1, &operande2);
+        if (scanf("%f %f", &operande1, &operande2) != 2)
+        {
+            printf("Erreur : entrée invalide\n");
+            // Vider le tampon d'entrée pour éviter les problèmes de boucle infinie
+            while (getchar() != '\n');
+            continue;
+        }
+
         switch(operation) 
         {
             case '+': // On effectue l'opération +
@@ -38,11 +54,10 @@ int main()
                     continue;
                 }
                 break;
-            default:
-                printf("Erreur : opération non définie\n"); // On affiche un message d'erreur si l'opération n'est pas définie
-                continue;
         }
+
         printf("Résultat : %f\n", resultat); // On affiche le résultat
     }
+
     return 0;
 }
