@@ -3,22 +3,30 @@
 #include <string.h>
 
 #define PI 3.14159 // Définition de la constante PI
+#define MAX_INPUT 25 // Définition de la taille maximale de la chaîne d'entrée
 
 int main() 
 {
     float rayon, perimetre, surface;
-    char input[50];
+    char input[MAX_INPUT];
+    
 
     printf("Entrez la valeur du rayon du cercle en cm: ");
     fgets(input, sizeof(input), stdin); //évite les dépassements de mémoire
-    rayon = strtof(input, NULL);//évite les attaques d'injection 
+    rayon = strtof(input, NULL);//interpréter une valeur à virgule flottante dans une chaîne d'octets de manière sécurisée évite les injections
+    // Test si le rayon est négatif
+    if (rayon < 0) 
+    {
+        printf("Le rayon ne peut pas être négatif.\n");
+    }
+    else
+    {
+        perimetre = 2 * PI * rayon; // Calcul du périmètre
+        surface = PI * rayon * rayon; // Calcul de la surface
 
-    perimetre = 2 * PI * rayon; // Calcul du périmètre
-    surface = PI * rayon * rayon; // Calcul de la surface
-
-    // Affichage des résultats
-    printf("Le périmètre du cercle est : %f cm.\n", perimetre);
-    printf("La surface du cercle est : %f cm.\n", surface);
-
+        // Affichage des résultats
+        printf("Le périmètre du cercle est : %f cm.\n", perimetre);
+        printf("La surface du cercle est : %f cm.\n", surface);
+    }
     return 0;
 }
