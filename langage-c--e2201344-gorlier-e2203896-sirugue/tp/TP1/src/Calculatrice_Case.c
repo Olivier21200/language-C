@@ -1,62 +1,46 @@
-// VIII) Calculatrice #2 
-// Programme qui permet de faire des calculs simples (+, -, *, /) avec deux opérandes et des valeurs entières ou flottantes avec l'opérateur switch
 #include <stdio.h>
 
-int main() 
-{
-    char operation;
-    float operande1, operande2, resultat;
-    while(1) 
-    {
-        printf("Entrez une opération (+, -, *, /) ou 's' pour sortir : ");
-        scanf(" %c", &operation);
+int main() {
+    char operation; // Variable pour stocker l'opération
+    float operande1, operande2, resultat; // Variables pour stocker les opérandes et le résultat
 
-        // Validation de l'opération entrée par l'utilisateur
-        if (operation != '+' && operation != '-' && operation != '*' && operation != '/' && operation != 's') 
-        {
-            printf("Erreur : opération non valide\n");
+    while (1) {
+        printf("Entrez une opération (+, -, *, /) ou 's' pour sortir : ");
+        if (scanf(" %c", &operation) != 1) { // Lecture sécurisée de l'opération
+            printf("Erreur de saisie.\n");
+            fflush(stdin); // Efface les caractères restants dans le flux d'entrée
             continue;
         }
-
-        if (operation == 's') 
-        {
+        if (operation == 's') { // Vérifie si l'utilisateur veut sortir
             break;
         }
 
         printf("Entrez deux opérandes : ");
-        if (scanf("%f %f", &operande1, &operande2) != 2)
-        {
-            printf("Erreur : entrée invalide\n");
-            // Vider le tampon d'entrée pour éviter les problèmes de boucle infinie
-            while (getchar() != '\n');
+        if (scanf("%f %f", &operande1, &operande2) != 2) { // Lecture sécurisée des opérandes
+            printf("Erreur de saisie.\n");
+            fflush(stdin);
             continue;
         }
 
-        switch(operation) 
-        {
-            case '+': // On effectue l'opération +
-                resultat = operande1 + operande2;
-                break;
-            case '-': // On effectue l'opération -
-                resultat = operande1 - operande2;
-                break;
-            case '*': // On effectue l'opération *
-                resultat = operande1 * operande2;
-                break;
-            case '/': // On effectue l'opération /
-                if (operande2 != 0)  // On vérifie que l'opérande 2 n'est pas nul
-                {
-                    resultat = operande1 / operande2;
-                } 
-                else // On affiche un message d'erreur si l'opérande 2 est nul
-                {
-                    printf("Erreur : division par zéro\n");
-                    continue;
-                }
-                break;
+        if (operation == '+') { // Addition
+            resultat = operande1 + operande2;
+        } else if (operation == '-') { // Soustraction
+            resultat = operande1 - operande2;
+        } else if (operation == '*') { // Multiplication
+            resultat = operande1 * operande2;
+        } else if (operation == '/') { // Division
+            if (operande2 != 0) { // Vérifie si le deuxième opérande est différent de zéro pour éviter la division par zéro
+                resultat = operande1 / operande2;
+            } else {
+                printf("Erreur : division par zéro\n");
+                continue;
+            }
+        } else { // Opération non définie
+            printf("Erreur : opération non définie\n");
+            continue;
         }
 
-        printf("Résultat : %f\n", resultat); // On affiche le résultat
+        printf("Résultat : %f\n", resultat); // Affichage du résultat
     }
 
     return 0;
