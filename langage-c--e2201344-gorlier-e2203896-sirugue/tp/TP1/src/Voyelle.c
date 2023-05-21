@@ -5,25 +5,35 @@
 
 int main() 
 {
-    char texte[1000]; //On suppose que le texte ne contient pas plus de 1000 caractères
-    int longueur, nb_voyelles = 0; //On initialise le nombre de voyelles à 0
+    char texte[1000];
+    int longueur, nb_voyelles = 0;
     
-    printf("Entrez un texte qui se termine par '#' : \n"); //On demande à l'utilisateur d'entrer un texte
-    fgets(texte, 1000, stdin); //On récupère le texte saisi au clavier
+    printf("Entrez un texte qui se termine par '#' : \n");
     
-    longueur = strlen(texte); //On récupère la longueur du texte
+    // Lecture sécurisée du texte avec fgets
+    if (fgets(texte, sizeof(texte), stdin) == NULL)
+    {
+        printf("Erreur de lecture.\n");
+        return 1;
+    }
     
-    for (int i = 0; i < longueur; i++)  //On parcourt le texte caractère par caractère
+    // Suppression du caractère '\n' en fin de chaîne
+    texte[strcspn(texte, "\n")] = '\0';
+    
+    longueur = strlen(texte);
+    
+    for (int i = 0; i < longueur; i++)
     {
         char c = texte[i];
         if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' || c == 'y' || 
-            c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U' || c == 'Y') //On vérifie si le caractère est une voyelle
+            c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U' || c == 'Y')
         {
-            nb_voyelles++; //On incrémente le nombre de voyelles
+            nb_voyelles++;
         }
     }
     
-    printf("Le texte contient %d voyelle(s).\n", nb_voyelles); //On affiche le nombre de voyelles
+    printf("Le texte contient %d voyelle(s).\n", nb_voyelles);
     
     return 0;
 }
+

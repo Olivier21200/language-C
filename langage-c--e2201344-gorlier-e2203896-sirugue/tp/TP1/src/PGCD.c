@@ -1,18 +1,27 @@
 // X) PGCD
 // Programme qui calcule le PGCD de deux nombres entiers positifs
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#define MAX_INPUT_SIZE 50
 
 int main() 
 {
     int X, N;
     long int resultat = 1;
+    char input[MAX_INPUT_SIZE];
     
-    // Saisie des valeurs de X et N
+    // Saisie sécurisée des valeurs de X et N
     printf("Entrez deux nombres entiers X et N :\n"); 
+    
     printf("X = ");
-    scanf("%d", &X);
+    fgets(input, sizeof(input), stdin);
+    X = atoi(input);
+    
     printf("N = ");
-    scanf("%d", &N);
+    fgets(input, sizeof(input), stdin);
+    N = atoi(input);
     
     if (X <= 0 || N < 0) // Vérification des valeurs de X et N
     {
@@ -20,8 +29,14 @@ int main()
         return 1;
     }
     
-    for (int i = 0; i < N; i++) // Calcul de X^N
+    // Calcul du résultat en évitant le débordement
+    for (int i = 0; i < N; i++) 
     {
+        if (resultat > __INT_MAX__ / X) 
+        { // Vérification du débordement potentiel
+            printf("Erreur : débordement arithmétique\n");
+            return 1;
+        }
         resultat *= X;
     }
     
