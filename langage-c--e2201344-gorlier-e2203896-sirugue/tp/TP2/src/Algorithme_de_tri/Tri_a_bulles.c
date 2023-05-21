@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+
 // Programme de tri à bulles
 int main()
 {
@@ -26,13 +27,13 @@ int main()
     while (permutation) 
     {
         permutation = 0;
-        for (i = 0; i < N-1; i++) 
+        for (i = 0; i < N - 1; i++) 
         {
-            if (TAB[i] > TAB[i+1]) 
+            if (TAB[i] > TAB[i + 1]) 
             {
                 temp = TAB[i];
-                TAB[i] = TAB[i+1];
-                TAB[i+1] = temp;
+                TAB[i] = TAB[i + 1];
+                TAB[i + 1] = temp;
                 permutation = 1;
             }
         }

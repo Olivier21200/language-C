@@ -3,7 +3,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-// programme de tri par recherche des minima successifs
+
+// Programme de tri par recherche des minima successifs
 int main()
 {
     const int N = 30;
@@ -22,10 +23,10 @@ int main()
     printf("\n");
 
     // tri par recherche des minima successifs
-    for (i = 0; i < N-1; i++) 
+    for (i = 0; i < N - 1; i++) 
     {
         min = i;
-        for (j = i+1; j < N; j++) 
+        for (j = i + 1; j < N; j++) 
         {
             if (TAB[j] < TAB[min]) 
             {
